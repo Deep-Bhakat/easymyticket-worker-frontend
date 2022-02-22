@@ -1,9 +1,17 @@
 import React from 'react';
-import './App.css';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
+// Screens
+import LoginScreen from './screens/LoginScreen';
+
 
 const App = () => {
 	return <>
-		<h1>Ease My Ticket Worker</h1>
+		<BrowserRouter>
+			<Switch>
+				<Route exact path='/login' component={LoginScreen} />
+			</Switch>
+		</BrowserRouter>
 	</>;
 }
 
