@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form, Button } from 'react-bootstrap';
-
+import {ReactComponent as  WorkerLogo} from '../assets/worker-logo-white.svg';
 // Module CSS file
 import styles from './LoginScreen.module.css';
 
@@ -12,10 +12,8 @@ const LoginScreen = () => {
             {/* Login form area */}
             <div className={`text-center ${styles.login_area}`}>
                 {/* Worker logo SVG */}
-                <img
-                    src='/assets/worker-logo-white.svg'
-                    alt='Worker Logo'
-                />
+                <WorkerLogo />
+                
                 {/* Login form */}
                 <Form className='mt-5'>
                     <Form.Group className="mb-4">
