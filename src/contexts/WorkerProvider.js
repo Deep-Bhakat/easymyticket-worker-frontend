@@ -6,7 +6,7 @@ import WorkerContext from './worker-context';
 const WorkerProvider = (props) => {
     const [loggedInWorker, setLoggedInWorker] = useState(null);
     const [loginData, setLoginData] = useState(null);
-    const [loginError, setLoginError] = useState(false);
+    const [loginError, setLoginError] = useState(null);
     
     const login = async (username, password) => {
         try {
@@ -20,7 +20,8 @@ const WorkerProvider = (props) => {
             setLoggedInWorker(res.data);
         }
         catch(error) {
-            setLoginError(true);
+            const serverError = error.response ? error.response.data.errorMessage : error.message;
+            setLoginError(serverError);
         }
     }
     
