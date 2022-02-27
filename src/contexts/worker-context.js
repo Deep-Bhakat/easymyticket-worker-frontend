@@ -1,7 +1,7 @@
 import React from 'react';
 
 const WorkerContext = React.createContext({
-    loggedInWorker: {},
+    loggedInWorker: null,
     login: () => {},
     loginError: null,
     loginData: {}
