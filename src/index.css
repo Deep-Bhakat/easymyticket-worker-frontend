@@ -6,9 +6,20 @@ body {
   font-family: 'Nunito', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: white;
 }
 
 .bg-gradient {
   min-height: 100vh;
   background-image: linear-gradient(rgba(236, 150, 1), rgba(236, 150, 1, 0.3));
+}
+
+.btn_action {
+  width: 100%;
+  color: white;
+  background-color: rgba(236, 150, 1);
+  font-weight: 700;
+  border: none;
+  box-shadow: 3px 3px 10px #21252985;
+  padding: 0.8rem;
 }

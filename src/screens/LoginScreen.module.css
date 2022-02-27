@@ -8,12 +8,3 @@
     margin-top: 10rem;
     min-width: 70vw;
 }
-
-.btn_action {
-    width: 100%;
-    background-color: rgba(236, 150, 1);
-    font-weight: 700;
-    border: none;
-    box-shadow: 3px 3px 10px #21252985;
-}
-
