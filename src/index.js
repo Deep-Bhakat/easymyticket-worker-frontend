@@ -5,10 +5,13 @@ import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 
+// Cntext Providers
+import WorkerProvider from './contexts/WorkerProvider';
+
 ReactDOM.render(
-  <React.StrictMode>
+  <WorkerProvider>
     <App />
-  </React.StrictMode>,
+  </WorkerProvider>,
   document.getElementById('root')
 );
 
