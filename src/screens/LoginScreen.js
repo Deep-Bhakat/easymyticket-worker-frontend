@@ -43,7 +43,7 @@ const LoginScreen = (props) => {
                 
                 {/* Login form */}
                 <Form className='mt-5' onSubmit={loginHandler}>
-                {loginError && <Alert variant='danger'>Invalid username or password</Alert>}
+                {loginError !== null && <Alert variant='danger'>{loginError}</Alert>}
                     <Form.Group className="mb-4">
                         <Form.Control type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
                     </Form.Group>
@@ -52,7 +52,7 @@ const LoginScreen = (props) => {
                         <Form.Control type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
                     </Form.Group>
                     
-                    <Button type="submit" className={styles.btn_action}>Login</Button>
+                    <Button type="submit" className="btn_action">Login</Button>
                 </Form>
             </div>
         </div>
