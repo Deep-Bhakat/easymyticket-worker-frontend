@@ -7,7 +7,7 @@ const ScanTicketScreeen = (props) => {
     const handleScan = (result, error) => {
         // If scan is successful, redirect to ticket details page and send the scanned ticket ID
         if(result) {
-            props.history.push(`/ticket/?ticketID=${result.text}`);
+            props.history.push(`/ticket?ticketID=${result.text}`);
         }
     }
     
