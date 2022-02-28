@@ -18,7 +18,7 @@ const DashboardScreen = (props) => {
         <Container>
             <h1>Welcome, {workerCtx.loggedInWorker && workerCtx.loggedInWorker.name}</h1>
             <button className='btn_action my-5' onClick={() => props.history.push('/scanticket')}>Scan tickets</button>
-            <button className='btn_action my-5'>Logout</button>
+            <button className='btn_action my-5' onClick={workerCtx.logout}>Logout</button>
         </Container>
     </div>
 }

@@ -25,11 +25,16 @@ const WorkerProvider = (props) => {
         }
     }
     
+    const logout = () => {
+        setLoggedInWorker(null);
+    }
+    
     const workerContextValue = {
         loggedInWorker,
         login,
         loginError,
-        loginData
+        loginData,
+        logout
     };
     
     return <WorkerContext.Provider value={workerContextValue}>

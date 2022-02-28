@@ -4,7 +4,8 @@ const WorkerContext = React.createContext({
     loggedInWorker: null,
     login: () => {},
     loginError: null,
-    loginData: {}
+    loginData: {},
+    logout: () => {}
 });
 
 export default WorkerContext;
