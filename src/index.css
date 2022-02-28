@@ -12,6 +12,7 @@ body {
 .bg-gradient {
   min-height: 100vh;
   background-image: linear-gradient(rgba(236, 150, 1), rgba(236, 150, 1, 0.3));
+  padding-top: 1.5rem;
 }
 
 .btn_action {
@@ -20,6 +21,15 @@ body {
   background-color: rgba(236, 150, 1);
   font-weight: 700;
   border: none;
+  box-shadow: 3px 3px 10px #21252985;
+  padding: 0.8rem;
+}
+
+.btn_minor {
+  color: white;
+  background-color: rgba(236, 150, 1);
+  font-weight: 700;
+  border: 0.2px solid #494949;
   box-shadow: 3px 3px 10px #21252985;
   padding: 0.8rem;
 }
