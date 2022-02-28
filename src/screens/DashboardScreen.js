@@ -17,7 +17,7 @@ const DashboardScreen = (props) => {
     return <div className='bg-gradient'>
         <Container>
             <h1>Welcome, {workerCtx.loggedInWorker && workerCtx.loggedInWorker.name}</h1>
-            <button className='btn_action my-5'>Scan tickets</button>
+            <button className='btn_action my-5' onClick={() => props.history.push('/scanticket')}>Scan tickets</button>
             <button className='btn_action my-5'>Logout</button>
         </Container>
     </div>
