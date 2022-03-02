@@ -33,3 +33,7 @@ body {
   box-shadow: 3px 3px 10px #21252985;
   padding: 0.8rem;
 }
+
+.black_txt {
+  color: black;
+}
