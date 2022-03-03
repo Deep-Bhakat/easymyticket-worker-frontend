@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Spinner } from 'react-bootstrap';
 import {ReactComponent as  WorkerLogo} from '../assets/worker-logo-white.svg';
 import { Alert } from 'react-bootstrap';
 
@@ -10,6 +10,7 @@ import styles from './LoginScreen.module.css';
 import WorkerContext from '../contexts/worker-context';
 
 const LoginScreen = (props) => {
+    const [loading, setLoading] = useState(false);
     // Form field values
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -28,9 +29,11 @@ const LoginScreen = (props) => {
     }, [workerCtx, props.history]);
     
     // Login handler
-    const loginHandler = (e) => {
+    const loginHandler = async (e) => {
         e.preventDefault();
-        workerCtx.login(username, password);
+        setLoading(true);
+        await workerCtx.login(username, password);
+        setLoading(false);
     }
     return (
         <div className={`screen bg-gradient d-flex flex-column align-items-center`}>
@@ -51,7 +54,7 @@ const LoginScreen = (props) => {
                     <Form.Group className="mb-4">
                         <Form.Control type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
                     </Form.Group>
-                    
+                    {loading && <Spinner animation='border' />}
                     <Button type="submit" className="btn_action">Login</Button>
                 </Form>
             </div>

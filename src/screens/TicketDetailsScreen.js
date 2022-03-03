@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Container, Button, Alert, ListGroup, Form, Modal } from 'react-bootstrap';
+import { Container, Button, Alert, ListGroup, Form, Modal, Spinner } from 'react-bootstrap';
 import axios from 'axios';
 import WorkerContext from '../contexts/worker-context';
 
 const TicketDetailsScreen = (props) => {
-    const [ticketDetails, setTicketDetails] = useState(true);
+    const [loading, setLoading] = useState();
+    const [ticketDetails, setTicketDetails] = useState({});
     const [ticketError, setTicketError] = useState(null);
     const [selectedToAdmit, setSelectedToAdmit] = useState(1);
     const [showModal, setShowModal] = useState(false);
@@ -20,7 +21,9 @@ const TicketDetailsScreen = (props) => {
         const fetchTicketDetails = async () => {
             try {
                 const config = { headers: { Authorization: `Bearer ${workerCtx.loggedInWorker.token}` } };
+                setLoading(true);
                 const res = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/ticket/${ticketID}`, config);
+                setLoading(false);
                 console.log(res);
                 setTicketDetails(res.data.ticket);
             }
@@ -74,9 +77,12 @@ const TicketDetailsScreen = (props) => {
             <div className='my-5'>
                 <h4>Ticket ID: {ticketID}</h4>
                 {ticketError && <Alert variant='danger'>{ticketError}</Alert>}
-
+                
+                {/* Loading spinner */}
+                {loading && <Spinner animation='border'/>}
+                
                 {/* If ticket is used */}
-                {ticketDetails.noOfVisitors === ticketDetails.noOfVisitorsEntered && <Alert variant='danger'>Ticket is used!</Alert>}
+                {(!loading && ticketDetails.noOfVisitors === ticketDetails.noOfVisitorsEntered) && <Alert variant='danger'>Ticket is used!</Alert>}
 
                 {ticketDetails && (
                     <ListGroup className='black_txt'>
